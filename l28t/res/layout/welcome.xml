@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/welcom_bg"
+    android:gravity="center_vertical|center_horizontal"
+    android:orientation="vertical" >
+
+    <ImageButton
+        android:id="@+id/wel_watch"
+        android:layout_width="150dip"
+        android:layout_height="260dip"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dip"
+        android:background="@drawable/index_watch"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/wel_watch"
+        android:layout_marginTop="0dip"
+        android:gravity="center|center_horizontal"
+        android:text="@string/app_name"
+        android:textColor="@android:color/white"
+        android:textSize="34dp"
+        android:textStyle="bold"
+        android:visibility="visible" />
+    
+    <Button
+        android:id="@+id/btn_reg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dip"
+        android:background="@drawable/reg_btn_selector"
+        android:gravity="center|center_horizontal"
+        android:text="@string/btn_reg"
+        android:textColor="#fff"
+        android:textSize="22sp" />
+    
+    <Button
+        android:id="@+id/btn_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dip"
+        android:background="@drawable/login_btn_selector"
+        android:gravity="center|center_horizontal"
+        android:text="@string/btn_login"
+        android:textColor="#fff"
+        android:textSize="22dip" />
+
+
+</LinearLayout>

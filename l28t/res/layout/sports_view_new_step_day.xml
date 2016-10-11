@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="1dip"
+        android:layout_alignParentBottom="true"
+        android:background="#A8A8A8"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:id="@+id/otherlayout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#fff"
+        android:orientation="vertical"
+        android:scrollbars="vertical" >
+
+        <!-- topbar 标题显示 -->
+
+        <FrameLayout
+            android:id="@+id/pttopbar"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" >
+
+            <include layout="@layout/title" />
+
+            <!-- 左边的按钮   android:onClick="btn_left_clicked" -->
+
+            <ImageButton
+                android:id="@+id/btn_left"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="left|center_vertical"
+                android:layout_marginLeft="10dip"
+                android:layout_marginTop="0dip"
+                android:background="@drawable/sport_back02"
+                android:scaleType="fitCenter"
+                android:visibility="visible" />
+
+            <!-- 右边的按钮  android:onClick="btn_right_clicked" -->
+
+            <ImageButton
+                android:id="@+id/btn_right_share"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right|center_vertical"
+                android:layout_marginRight="15dip"
+                android:layout_marginTop="0dip"
+                android:background="@drawable/share"
+                android:visibility="gone" />
+
+            <ImageButton
+                android:id="@+id/btn_right_set_sleep"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right|center_vertical"
+                android:layout_marginRight="15dip"
+                android:layout_marginTop="0dip"
+                android:background="@drawable/set_sleep"
+                android:visibility="gone" />
+
+            <!-- 进度小圆圈 -->
+
+            <ProgressBar
+                android:id="@+id/progressbar"
+                style="?android:attr/progressBarStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right|center_vertical"
+                android:layout_marginRight="15dip"
+                android:visibility="gone" />
+        </FrameLayout>
+
+        <!-- 日历选择 -->
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="0dp"
+            android:layout_marginTop="20dp"
+            android:background="#fff"
+            android:gravity="center_vertical" >
+
+            <ImageButton
+                android:id="@+id/imagebutton_sub"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/layout_x_25"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/btn_predate_off_selector" />
+            <!-- android:src="@drawable/predate_off" -->
+
+            <ImageButton
+                android:id="@+id/imagebutton_add"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/layout_x_25"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/btn_nextdate_off_selector" />
+            <!-- android:src="@drawable/nextdate_off" -->
+
+            <LinearLayout
+                android:id="@+id/root_layout0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="0dip"
+                android:gravity="center"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/textview_top"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="0dip"
+                    android:drawablePadding="5dip"
+                    android:gravity="center_horizontal"
+                    android:textColor="#000"
+                    android:textSize="15sp"/>
+
+                <TextView
+                    android:id="@+id/textview_bottom"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dip"
+                    android:textColor="#000"
+                    android:textSize="15sp" />
+            </LinearLayout>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/root_layout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <!-- 通用 2014-06-19 begin -->
+
+            <LinearLayout
+                android:id="@+id/common_layout"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dip"
+                android:background="#fff"
+                android:orientation="vertical"
+                android:padding="0dp"
+                android:visibility="visible" >
+
+                <!-- 显示通用图表的每天信息 begin -->
+
+
+                <!-- 显示通用图表的每天信息 end -->
+
+
+               
+                <!-- 显示通用图表的每周/每月信息 end -->
+
+
+                <!-- 显示通用图表的分割线 begin -->
+
+                <ImageView
+                    android:layout_width="fill_parent"
+                    android:layout_height="2dip"
+                    android:layout_marginLeft="0dip"
+                    android:layout_marginRight="0dip"
+                    android:background="@drawable/u114_line"
+                    android:visibility="gone"
+                     />
+                <!-- 显示通用图表的分割线 end -->
+
+                <FrameLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content" >
+
+                    <!-- 每天/每周/每月的图表显示通用区域  begin -->
+
+                    <LinearLayout
+                        android:id="@+id/common_show_layout"
+                        android:layout_width="fill_parent"
+                        android:layout_height="280dip"
+                        android:layout_marginLeft="20dip"
+                        android:layout_marginRight="20dip"
+                        android:orientation="vertical" >
+                    </LinearLayout>
+                    <!-- 每天/每周/每月的图表显示通用区域  end -->
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" >
+
+                        <ImageView
+                            android:id="@+id/common_show_split01"
+                            android:layout_width="fill_parent"
+                            android:layout_height="1.5dip"
+                            android:layout_marginRight="0dip"
+                            android:layout_marginTop="240dip"
+                            android:background="@drawable/u114_line"
+                            android:visibility="visible" />
+
+                        <ImageView
+                            android:id="@+id/common_show_split02"
+                            android:layout_width="fill_parent"
+                            android:layout_height="1.5dip"
+                            android:layout_marginRight="0dip"
+                            android:layout_marginTop="250dip"
+                            android:background="@drawable/u114_line"
+                            android:visibility="gone" />
+                    </RelativeLayout>
+                </FrameLayout>
+
+                 <!-- 显示通用图表的每周/每月信息 begin -->
+
+                <RelativeLayout
+                    android:id="@+id/common_weekAndMonth_layout"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:orientation="horizontal"
+                    android:visibility="gone" >
+
+                    <TextView
+                        android:id="@+id/common_weekAndMonth_tv_center01"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dip"
+                        android:text="@string/daily_goal"
+                        android:textColor="#A8A8A8"
+                        android:textSize="20dip" />
+
+                    <TextView
+                        android:id="@+id/common_weekAndMonth_tv_center02"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dip"
+                        android:layout_toRightOf="@id/common_weekAndMonth_tv_center01"
+                        android:text="0"
+                        android:textColor="#E16E1A"
+                        android:textSize="30dip"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/common_weekAndMonth_tv_center03"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dip"
+                        android:layout_marginTop="10dip"
+                        android:layout_toRightOf="@id/common_weekAndMonth_tv_center02"
+                        android:text=""
+                        android:textColor="#E16E1A"
+                        android:textSize="20dip" />
+                </RelativeLayout>
+                
+                <RelativeLayout
+                    android:id="@+id/common_day_layout"
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/layout_x_100"
+                    android:gravity="center_vertical|center_horizontal" 
+                    >
+
+                    <TextView
+                        android:id="@+id/common_day_tv_left01"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dip"
+                        android:text="0"
+                        android:textColor="#E16E1A"
+                        android:textSize="30dip"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/common_day_tv_left02"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dip"
+                        android:layout_marginTop="10dip"
+                        android:layout_toRightOf="@id/common_day_tv_left01"
+                        android:text=""
+                        android:textColor="#E16E1A"
+                        android:textSize="18dip" />
+
+                    <TextView
+                        android:id="@+id/common_day_tv_right02"
+                        android:layout_width="@dimen/layout_x_100"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:gravity="center|bottom"
+                        android:layout_alignBaseline="@id/common_day_tv_left02"
+                        android:text="@string/sleep_goal"
+                        android:textColor="#E16E1A"
+                        android:textSize="17dip" />
+
+                    <TextView
+                        android:id="@+id/common_day_tv_right01"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dip"
+                        android:layout_toLeftOf="@id/common_day_tv_right02"
+                        android:text="0%"
+                        android:textColor="#E16E1A"
+                        android:textSize="30dip"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+                <!-- 不同图表前面翻页 begin -->
+
+                <LinearLayout
+                    android:id="@+id/common_preAndNext_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="0dip"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:visibility="gone" >
+
+                    <!-- android:background="#E0E0E0" -->
+
+                    <ImageView
+                        android:id="@+id/common_preAndNext_down"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="0dip"
+                        android:layout_marginRight="0dip"
+                        android:background="@drawable/move_down"
+                        android:visibility="visible" />
+
+                    <ImageView
+                        android:id="@+id/common_preAndNext_up_down"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="0dip"
+                        android:layout_marginRight="0dip"
+                        android:background="@drawable/move_up_down"
+                        android:visibility="gone" />
+
+                    <ImageView
+                        android:id="@+id/common_preAndNext_up"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="0dip"
+                        android:layout_marginRight="0dip"
+                        android:background="@drawable/move_up"
+                        android:visibility="gone" />
+                </LinearLayout>
+                <!-- 不同图表前面翻页 end -->
+
+            </LinearLayout>
+            <!-- 通用 2014-06-19 end -->
+
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

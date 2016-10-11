@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#fff"
+    android:orientation="vertical" >
+
+    <!-- topbar 标题显示 -->
+
+    <FrameLayout
+        android:id="@+id/pttopbar"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <include layout="@layout/title" />
+
+        <!-- 左边的按钮   android:onClick="btn_left_clicked"   -->
+
+        <ImageButton
+            android:id="@+id/btn_left"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="left|center_vertical"
+            android:layout_marginLeft="10dip"
+            android:layout_marginTop="0dip"
+            android:background="@drawable/topbtn_rebutn_btn_selector"
+            android:onClick="btn_return_clicked"
+            android:visibility="visible" />
+        
+    </FrameLayout>
+    
+    
+    <LinearLayout
+        android:id="@+id/ll_logininfo"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_below="@id/pttopbar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dip"
+        android:layout_marginLeft="40dip"
+        android:layout_marginRight="40dip" >
+        
+        <EditText
+            android:id="@+id/login_email"
+            android:layout_width="fill_parent"
+            android:layout_height="50dip"
+            android:layout_marginTop="10dip"
+            android:layout_gravity="center_horizontal"
+            android:text=""
+            android:paddingLeft="3dip"
+            android:singleLine="true"
+            android:textSize="18dip" 
+            android:hint="@string/reg_email"
+            android:background="@drawable/edit_bg"
+            />
+        
+        <EditText
+            android:id="@+id/login_password"
+            android:layout_width="fill_parent"
+            android:layout_height="50dip"
+            android:password="true"
+            android:layout_marginTop="20dip"
+            android:layout_gravity="center_horizontal"
+            android:text=""
+             android:paddingLeft="3dip"
+            android:singleLine="true"
+            android:textSize="18dip" 
+            android:hint="@string/reg_password"
+            android:background="@drawable/edit_bg"
+            android:digits="0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+            android:maxLength="16"
+            />
+        
+        <TextView
+	            android:id="@+id/login_forgot_password"
+	            android:layout_width="fill_parent"
+	            android:layout_height="fill_parent"
+	            android:layout_marginTop="10dip"
+	            android:gravity="center_horizontal"
+	            android:text="@string/login_forgot_password"
+	            android:textSize="15dip"
+	            android:singleLine="true"
+	            />
+   
+    
+    <Button
+        android:id="@+id/btn_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dip"
+        android:background="@drawable/bt_bg"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/btn_login"
+        android:textColor="#fff"
+        android:textSize="22dip" />
+
+ </LinearLayout>
+</RelativeLayout>

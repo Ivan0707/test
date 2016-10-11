@@ -1,0 +1,407 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/settinglayout"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#fff"
+    android:orientation="vertical" >
+
+    <!-- topbar 标题显示 -->
+
+    <FrameLayout
+        android:id="@+id/pttopbar"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <include layout="@layout/title" />
+
+        <!-- 左边的按钮   android:onClick="btn_left_clicked" -->
+
+        <ImageButton
+            android:id="@+id/btn_left"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="left|center_vertical"
+            android:layout_marginLeft="10dip"
+            android:layout_marginTop="0dip"
+            android:background="@drawable/topbtn_rebutn_btn_selector"
+            android:onClick="btn_return_clicked"
+            android:visibility="visible" />
+    </FrameLayout>
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@id/pttopbar"
+        android:scrollbarStyle="outsideOverlay" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="#fff"
+            android:orientation="vertical" >
+
+            <cn.appscomm.pedometer.UI.JustifyTextView
+                android:id="@+id/tv_company_info"
+	            android:layout_width="fill_parent"
+	        	android:layout_height="fill_parent"
+	        	android:layout_margin="10dip"
+	        	android:padding="5dip"
+	            android:textColor="#000"
+	            android:textSize="15sp" 
+	            android:visibility="gone"
+	            />        
+	         
+            <LinearLayout
+                android:id="@+id/layout_content"
+                android:layout_width="fill_parent"
+	            android:layout_height="wrap_content"
+	            android:orientation="vertical" 
+                 >
+             <RelativeLayout
+                android:id="@+id/layout_about_us"
+			    android:layout_width="fill_parent"
+			    android:layout_height="45dip"
+			    android:visibility="gone" >
+		        <TextView
+		            android:id="@+id/about_us_title"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:layout_centerVertical="true"
+		            android:layout_marginLeft="10dip"
+		            android:textColor="@android:color/black"
+		            android:textSize="18dip"
+		            android:textStyle="bold"
+		            android:paddingLeft="10dip" />
+		        <!-- android:text="@string/about_app1" -->
+		
+		        <ImageView
+			        android:id="@+id/goal_bar_img"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:layout_alignParentRight="true"
+			        android:layout_centerVertical="true"
+			        android:layout_marginRight="20dip"
+			        android:background="@drawable/next" />
+			</RelativeLayout>
+            
+              <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="0.5dip"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="10dip"
+                android:background="#cccccc" />
+              
+              
+               <RelativeLayout
+                android:id="@+id/layout_zefit_version"
+                android:layout_width="fill_parent"
+                android:layout_height="45dp"
+                android:gravity="center_vertical" >
+
+                <TextView
+                    android:id="@+id/zefit_version_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dip"
+                    android:paddingLeft="10dip"
+                    android:text="@string/help_app_version"
+                    android:textColor="@android:color/black"
+                    android:textSize="18dip"
+                    android:textStyle="bold" />
+                
+                <ImageView
+                        android:id="@+id/goal_bar_img2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="20dip"
+                        android:background="@drawable/next"
+                        android:visibility="invisible" />
+				<TextView
+                    android:id="@+id/copyright_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/zefit_version_title"
+                    android:layout_alignLeft="@id/zefit_version_title"
+                    android:layout_marginRight="10dip"
+                    android:paddingLeft="10dip"
+                    android:layout_toLeftOf="@id/goal_bar_img2"
+                    android:visibility="gone"
+                    android:textColor="#A2A3A4"
+                    android:textSize="15dip" />
+				<!-- android:text="@string/copyright" -->
+
+            
+            </RelativeLayout>
+            
+               
+                <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="0.5dip"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="10dip"
+                android:background="#cccccc" />
+              
+              
+              
+              
+              
+            <RelativeLayout
+                android:id="@+id/layout_frequently_asked_questions"
+                android:layout_width="fill_parent"
+                android:visibility="gone"
+                android:layout_height="45dip" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dip"
+                    android:paddingLeft="10dip"
+                    android:textColor="@android:color/black"
+                    android:textSize="18dip"
+                    android:textStyle="bold" />
+                <!-- android:text="@string/frequently_asked_questions" -->
+
+                <ImageView
+                    android:id="@+id/goal_bar_img"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="20dip"
+                    android:background="@drawable/more" />
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="0.5dip"
+                 android:visibility="gone"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="10dip"
+                android:background="#cccccc" />
+
+            <RelativeLayout
+                android:id="@+id/layout_terms_service"
+                android:layout_width="fill_parent"
+                android:visibility="gone"
+                android:layout_height="45dip" >
+
+                <TextView
+                    android:id="@+id/terms_service_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dip"
+                    android:paddingLeft="10dip"
+                    android:textColor="@android:color/black"
+                    android:textSize="18dip"
+                    android:textStyle="bold" />
+				<!-- android:text="@string/terms_service" -->
+                
+                <ImageView
+                    android:id="@+id/goal_bar_img1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="20dip"
+                    android:background="@drawable/more" />
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="0.5dip"
+                 android:visibility="gone"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="10dip"
+                android:background="#cccccc" />
+
+            <RelativeLayout
+                android:id="@+id/layout_zefit_version"
+                android:layout_width="fill_parent"
+                android:layout_height="80dp"
+                android:visibility="gone"
+                android:gravity="center_vertical" >
+
+                <TextView
+                    android:id="@+id/zefit_version_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dip"
+                    android:paddingLeft="10dip"
+                    android:text="@string/help_app_version"
+                    android:textColor="@android:color/black"
+                    android:textSize="18dip"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/copyright_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/zefit_version_title"
+                    android:layout_marginLeft="10dp"
+                    android:paddingLeft="10dip"
+                    android:textColor="#A2A3A4"
+                    android:textSize="15dip" />
+                <!-- android:text="@string/copyright" -->
+
+                <ImageView
+                    android:id="@+id/goal_bar_img2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="20dip"
+                    android:background="@drawable/next"
+                    android:visibility="gone" />
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="0.5dip"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="10dip"
+                android:visibility="gone"
+                android:background="#cccccc" />
+
+            <!-- 设备ID显示 -->
+
+            <RelativeLayout
+                android:id="@+id/layout_deviceid"
+                android:layout_width="fill_parent"
+                android:layout_height="45dip"
+                android:layout_marginLeft="10dp"
+                android:visibility="gone" >
+
+                <TextView
+                    android:id="@+id/tv_help_device_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dip"
+                    android:paddingLeft="10dip"
+                    android:text=""
+                    android:textColor="@android:color/black"
+                    android:textSize="18dip"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_Deivice_SN"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:text="D/N:"
+                    android:textSize="16sp" />
+            </RelativeLayout>
+            
+            <TextView
+                android:visibility="gone"
+                android:layout_width="fill_parent"
+                android:layout_height="0.5dip"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="10dip"
+                android:background="#cccccc" />
+
+            <RelativeLayout
+                android:id="@+id/layout_firmware"
+                android:layout_width="fill_parent"
+                android:visibility="gone"
+                android:layout_height="45dip" >
+
+                <TextView
+                    android:id="@+id/firmware_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dip"
+                    android:paddingLeft="10dip"
+                    android:textColor="@android:color/black"
+                    android:textSize="18dip"
+                    android:textStyle="bold" />
+                <!--  android:text="@string/help_firmware_version" -->
+
+                <TextView
+                    android:id="@+id/tv_help_hwver"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/firmware_title"
+                    android:layout_alignBottom="@+id/firmware_title"
+                    android:layout_marginLeft="14dp"
+                    android:layout_toRightOf="@+id/firmware_title"
+                    android:textSize="16sp" />
+
+            </RelativeLayout>
+            
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="0.5dip"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="10dip"
+                 android:visibility="gone"
+                android:background="#cccccc" />
+
+            <RelativeLayout
+                android:id="@+id/layout_contact_support"
+                android:layout_width="fill_parent"
+                android:visibility="gone"
+                android:layout_height="45dip" >
+
+                <TextView
+                    android:id="@+id/contact_support_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dip"
+                    android:paddingLeft="10dip"
+                    android:text="@string/contact_support"
+                    android:textColor="@android:color/black"
+                    android:textSize="18dip"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/goal_bar_img3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="20dip"
+                    android:background="@drawable/more" />
+            </RelativeLayout>
+            
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="0.5dip"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="10dip"
+                 android:visibility="gone"
+                android:background="#cccccc" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical" >
+        <Button 
+			android:id="@+id/btn_contact_support"
+			android:layout_width="wrap_content" 
+			android:layout_height="wrap_content"
+			android:layout_gravity="center_horizontal"
+			android:text="@string/contact_support1"
+			android:layout_marginBottom="30dip"
+			android:paddingLeft="7dip"
+			android:paddingRight="7dip"
+			android:textSize="21dip"		
+			android:textColor="#fff"
+			android:background="@drawable/bt_bg"
+			/>
+    </LinearLayout>
+
+</RelativeLayout>

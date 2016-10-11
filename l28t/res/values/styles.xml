@@ -1,0 +1,82 @@
+<resources>
+
+    <!--
+        Base application theme, dependent on API level. This theme is replaced
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+    -->
+    <style name="AppBaseTheme" parent="android:Theme.Light">
+        
+    </style>
+
+    <!-- Application theme. -->
+
+    
+    <style name="TranslationMoveStyle" parent="@android:style/Theme.Light.NoTitleBar"> <!-- parent="@style/ChatDialog" -->
+        <!-- 设置activity打开和关闭的动画 -->
+        <item name="android:windowAnimationStyle">@style/ExitAnimation</item>
+    </style>    
+    
+    <style name="ExitAnimation">
+        <item name="android:windowEnterAnimation">@anim/slide_left_in</item>
+        <item name="android:windowExitAnimation">@anim/slide_right_out</item>
+    </style>
+    
+    
+    <style name="RightTranslationMoveStyle" parent="@android:style/Theme.Light.NoTitleBar"> <!-- parent="@style/ChatDialog" -->
+        <!-- 设置activity打开和关闭的动画 -->
+        <item name="android:windowAnimationStyle">@style/RightExitAnimation</item>
+    </style>
+    <style name="RightExitAnimation">
+        <item name="android:windowEnterAnimation">@anim/slide_right_in</item>
+ <!-- 
+        	点击HOME会出现闪的情况
+         <item name="android:windowExitAnimation">@anim/slide_left_out</item>
+         -->
+
+    </style>
+    
+    
+    <style name="dot_style">
+        <item name="android:layout_width">5dip</item>
+        <item name="android:layout_height">5dip</item>
+        <item name="android:background">@drawable/dot_normal</item>
+        <item name="android:layout_marginLeft">1.5dip</item>
+        <item name="android:layout_marginRight">1.5dip</item>
+    </style>
+    
+    
+    <style name="AppTheme" parent="android:Theme.Light" />      
+    	<style name="AnimBottom" parent="@android:style/Animation">  
+    	<item name="android:windowEnterAnimation">@anim/push_bottom_in</item>
+        <item name="android:windowExitAnimation">@anim/push_bottom_out</item>
+	</style>
+    <style name="PopupAnimation" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/push_bottom_in</item>
+        <item name="android:windowExitAnimation">@anim/push_bottom_out</item>
+ </style>
+
+
+
+    <style name="ShareDialogStyle">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <!-- 背景透明 -->
+        <item name="android:windowFrame">@null</item>
+        <!-- 边框 -->
+        <item name="android:windowNoTitle">true</item>
+        <!-- 无标题 -->
+        <item name="android:windowIsFloating">true</item>
+        <!-- 是否浮现在activity之上 -->
+        <item name="android:windowIsTranslucent">true</item>
+        <!-- 半透明 -->
+        <item name="android:windowContentOverlay">@null</item>
+        <!-- 内容覆盖 -->
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+        <!-- 窗口样式Dialog -->
+        <item name="android:backgroundDimEnabled">true</item>
+        <!-- 模糊 -->
+
+       </style>
+
+
+
+</resources>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <RelativeLayout
+        android:id="@+id/title_login"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/layout_y_80"
+        android:background="#FFCF06" >
+
+        <Button
+            android:id="@+id/back"
+            android:layout_width="@dimen/layout_x_80"
+            android:layout_height="@dimen/layout_x_60"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/layout_x_20"
+            android:background="@null"
+            android:text="@string/Cancel"
+            android:textColor="@color/white"
+            android:textSize="@dimen/layout_x_20" />
+
+        <TextView
+            android:id="@+id/title_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_centerVertical="true"
+            android:textColor="#ffffff"
+            android:textSize="20sp" />
+        <!-- android:text="@string/share_facebook" -->
+
+        <TextView
+            android:id="@+id/share_text"
+            android:layout_width="@dimen/layout_x_80"
+            android:layout_height="@dimen/layout_x_60"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/layout_x_20"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="@dimen/layout_x_20" />
+        <!-- android:text="@string/Share" -->
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/ll"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/layout_y_300"
+        android:layout_below="@id/title_login"
+        android:orientation="horizontal" >
+
+        <EditText
+            android:id="@+id/share_msg_text"
+            android:layout_width="@dimen/layout_x_270"
+            android:layout_height="fill_parent"
+            android:gravity="top"
+            android:maxLength="110" />
+
+        <ImageView
+            android:id="@+id/share_img"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/msg_lenght_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/ll"
+        android:layout_marginBottom="@dimen/layout_x_10"
+        android:layout_marginLeft="@dimen/layout_x_10"
+        android:text="110"
+        android:textColor="#9D9D9D"
+        android:textSize="@dimen/layout_x_30" />
+
+</RelativeLayout>

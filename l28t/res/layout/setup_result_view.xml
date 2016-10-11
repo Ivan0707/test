@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/otherlayout"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#fff"
+    android:orientation="vertical" >
+
+    <!-- topbar 标题显示 -->
+
+    <FrameLayout
+        android:id="@+id/pttopbar"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <include
+            android:layout_height="54dp"
+            layout="@layout/title" />
+
+        <!-- 左边的按钮   android:onClick="btn_left_clicked" -->
+
+        <ImageButton
+            android:id="@+id/btn_left"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="left|center_vertical"
+            android:layout_marginLeft="15dip"
+            android:layout_marginTop="0dip"
+            android:background="@drawable/topbtn_rebutn_btn_selector"
+            android:onClick="btn_return_clicked"
+            android:visibility="visible" />
+    </FrameLayout>
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dip"
+        android:gravity="center"
+        android:padding="8dp"
+        android:text=""
+        android:textColor="#12B8BA"
+        android:textSize="13sp"
+        android:visibility="gone" />
+
+    <RelativeLayout
+        android:id="@+id/layout_set_up_deveice"
+        android:layout_width="match_parent"
+        android:layout_height="268dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="14dp"
+        android:clickable="false"
+        android:gravity="center_vertical" >
+
+        <ImageView
+            android:id="@+id/imageview_pedometer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="50dp"
+            android:cropToPadding="false"
+            android:scaleType="center"
+            android:src="@drawable/bind_select_image" />
+        
+        <ImageView
+             android:id="@+id/imageview_item"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_alignParentRight="true"
+             android:layout_centerVertical="true"
+             android:layout_marginRight="40dp"
+             android:scaleType="matrix"
+             android:src="@drawable/binding_turn_right"
+             android:visibility="gone" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.42"
+        android:orientation="vertical" >
+
+        <Button
+            android:id="@+id/bt_bind"
+            android:layout_width="211dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="140dp"
+            android:background="@drawable/reg_btn_selector"
+            android:text="@string/binddevice"
+            android:textColor="#fff"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/bt_remove"
+            android:layout_width="211dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="140dp"
+            android:background="@drawable/login_btn_selector"
+            android:text="@string/remove"
+            android:textColor="#fff"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+
+</LinearLayout>

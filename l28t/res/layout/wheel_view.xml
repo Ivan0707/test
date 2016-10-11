@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    >
+<!-- android:background="#F0F0F0" -->
+	<LinearLayout 
+	    android:id="@+id/pop_layout"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:gravity="center_horizontal"
+	    android:orientation="vertical"
+	    android:layout_alignParentBottom="true"
+	    android:background="@drawable/btn_style_alert_dialog_background"	    
+	    
+	     >
+	    
+	    
+	     <RelativeLayout
+            android:id="@+id/pop2_layout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+          
+            
+            android:orientation="horizontal" >
+          <Button
+                android:id="@+id/WheelCancel"
+                android:layout_width="75dp"
+                android:layout_height="35dp"
+                android:gravity="center"
+                  
+                android:background="@drawable/cancel"
+               android:layout_marginRight="15dp"
+                   android:layout_alignParentRight="true"
+                android:text="@string/Cancel" />
+       
+            <Button
+                android:id="@+id/WheelSave"
+                android:layout_width="75dp"
+                android:layout_height="35dp"
+                  android:gravity="center"
+               
+               android:layout_marginLeft="15dp"
+                  android:layout_alignParentLeft="true"
+                android:background="@drawable/bt_bg"
+              
+                android:text="@string/OK" />
+
+            </RelativeLayout>
+	
+
+	    
+	    
+	    
+		<kankan.wheel.widget.WheelView 
+	  	    android:id="@+id/wheelview"
+	  	    android:layout_marginTop="5dp"
+			android:layout_height="wrap_content"
+			android:layout_width="280dp"/>
+	</LinearLayout>
+	
+</RelativeLayout>
+
+
+<!-- <?xml version="1.0" encoding="utf-8"?> 
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"    
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="#F0F0F0"
+    android:padding="20dp"
+    android:orientation="vertical" >
+    <LinearLayout
+        android:layout_width="fill_parent" 
+		android:layout_height="wrap_content"		
+		android:layout_gravity="center_horizontal"
+		android:paddingLeft="20dp"
+		android:paddingRight="20dp"
+		android:paddingTop="20dp"
+		android:paddingBottom="20dp"		
+		>
+	  
+	  	<kankan.wheel.widget.WheelView 
+	  	    android:id="@+id/hour"
+			android:layout_height="wrap_content"
+			android:layout_width="280dp"/>
+		
+	</LinearLayout>
+
+    
+</LinearLayout> -->

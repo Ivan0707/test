@@ -1,0 +1,962 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="1dip"
+        android:layout_alignParentBottom="true"
+        android:background="#A8A8A8"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:id="@+id/otherlayout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#fff"
+        android:orientation="vertical"
+        android:scrollbars="vertical" >
+
+        <!-- topbar 标题显示 -->
+
+        <FrameLayout
+            android:id="@+id/pttopbar"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" >
+
+            <include layout="@layout/title" />
+
+            <!-- 左边的按钮   android:onClick="btn_left_clicked" -->
+
+            <ImageButton
+                android:id="@+id/btn_left"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="left|center_vertical"
+                android:layout_marginLeft="10dip"
+                android:layout_marginTop="0dip"
+                android:background="@drawable/sport_back02"
+                android:visibility="visible" />
+
+            <!-- 右边的按钮  android:onClick="btn_right_clicked" -->
+
+            <ImageButton
+                android:id="@+id/btn_right_share"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right|center_vertical"
+                android:layout_marginRight="15dip"
+                android:layout_marginTop="0dip"
+                android:background="@drawable/share"
+                android:visibility="gone" />
+
+            <!-- 进度小圆圈 -->
+
+            <ProgressBar
+                android:id="@+id/progressbar"
+                style="?android:attr/progressBarStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right|center_vertical"
+                android:layout_marginRight="15dip"
+                android:visibility="gone" />
+        </FrameLayout>
+
+        <!-- 日历选择 -->
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="0dp"
+            android:layout_marginTop="25dp"
+            android:background="#fff"
+            android:gravity="center_vertical" >
+
+            <ImageButton
+                android:id="@+id/imagebutton_sub"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="30dip"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/predate_off" />
+            <!-- android:src="@drawable/btn_predate_off_selector" -->
+
+            <ImageButton
+                android:id="@+id/imagebutton_add"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/nextdate_off" />
+            <!-- android:src="@drawable/btn_nextdate_off_selector" -->
+
+            <LinearLayout
+                android:id="@+id/root_layout"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="0dip"
+                android:gravity="center"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/textview_top"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="0dip"
+                    android:gravity="center"
+                    android:textColor="#000"
+                    android:textSize="15sp"
+                    android:visibility="visible" />
+
+                <TextView
+                    android:id="@+id/textview_bottom"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="0dip"
+                    android:gravity="center"
+                    android:textColor="#000"
+                    android:textSize="15sp" />
+            </LinearLayout>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:visibility="gone"
+            android:gravity="center_horizontal" >
+
+            <Button
+                android:id="@+id/btn_sleep_report"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/sleep_day_01"
+                android:textColor="#fff"
+                android:textStyle="bold"
+                android:textSize="@dimen/layout_x_13" />
+            <!--  android:text="@string/sleep_data" -->
+
+            <Button
+                android:id="@+id/btn_sleep_set"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/sleep_day_02"
+                android:textColor="#fff"
+                android:textStyle="bold"
+                android:textSize="@dimen/layout_x_13" />
+            <!-- android:text="@string/sleep_log" -->
+        </LinearLayout>
+
+        <!-- 2014-06-16 begin -->
+        <!-- 睡眠信息数据列表 -->
+
+     <LinearLayout
+		android:id="@+id/layout_sleep_detail"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="35dip"
+		android:background="#fff"
+		android:orientation="vertical"
+		android:padding="0dp"
+		android:visibility="visible" >
+
+		<!-- 第1行 -->
+		<RelativeLayout 
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:visibility="gone" >
+			<LinearLayout
+				android:id="@+id/layout_content"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_centerInParent="true"
+				android:layout_alignParentLeft="true"
+				android:layout_gravity="center"
+				android:gravity="center_vertical"
+				android:orientation="horizontal"
+				android:layout_marginTop="10dip"
+				android:layout_marginBottom="10dip"
+				android:layout_marginLeft="0dip"
+				>
+
+				<TextView
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"	                        
+					android:text="@string/sleeps_hint_text"
+					android:textColor="#A0A0A0"
+					android:textSize="13sp" />
+
+				<TextView
+					android:id="@+id/textview_slept_hours"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_marginLeft="2dip"
+					android:text="0"
+					android:textColor="#FF0000"
+					android:textSize="14sp" />
+
+				<TextView
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_marginLeft="2dip"
+					android:text="@string/sleeps_hint_hours"
+					android:textColor="#A0A0A0"
+					android:textSize="13sp" />
+
+				<TextView
+					android:id="@+id/textview_slept_mins"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_marginLeft="2dip"
+					android:text="0"
+					android:textColor="#FF0000"
+					android:textSize="14sp" />
+
+				<TextView
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_marginLeft="2dip"
+					android:text="@string/sleeps_hint_mins"
+					android:textColor="#A0A0A0"
+					android:textSize="13sp" />
+			</LinearLayout>
+			<!-- android:background="@drawable/set_bg" -->
+			<LinearLayout
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginRight="30dip"
+				android:layout_marginTop="10dip"
+				android:layout_marginBottom="10dip"
+				android:layout_centerInParent="true"
+				android:layout_gravity="center"
+				android:gravity="center_vertical"
+				android:layout_alignParentRight="true"
+				android:orientation="horizontal" >
+				<TextView
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_marginLeft="0dip"
+					android:text="@string/sleep_goal"
+					android:textColor="#A0A0A0"
+					android:textSize="11sp" />
+
+				<TextView
+					android:id="@+id/textview_sleep_goal"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_marginLeft="2dip"
+					android:layout_gravity="right"
+					android:gravity="right"
+					android:text="0%"
+					android:textColor="#FF0000"
+					android:textSize="14sp" />
+			</LinearLayout>
+		</RelativeLayout>
+		
+		<!-- 横线条 -->
+		<!-- <ImageView
+			android:layout_width="match_parent"
+			android:layout_height="1dip"
+			android:background="#404041" /> -->
+
+		<!-- 第2行：开始 -->
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_centerInParent="true"
+			android:layout_gravity="center"
+			android:gravity="center_vertical"
+			android:orientation="horizontal" >
+
+			<!-- 第2行：第1列 -->
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_gravity="center"
+				android:layout_marginTop="20dip"
+				android:layout_marginBottom="20dip"
+				android:layout_marginLeft="5dip"
+				android:layout_marginRight="5dip"
+				android:layout_weight="1.0"
+				android:gravity="center_vertical"
+				android:orientation="horizontal" >
+				<ImageView
+					android:id="@+id/imageview_pic"
+					android:layout_width="46dip"
+					android:layout_height="46dip"
+					android:layout_marginLeft="10dip"
+					android:src="@drawable/light_sleep"
+					android:visibility="visible" /> 
+				<LinearLayout
+					android:id="@+id/linearlayout_content2"
+					android:layout_width="fill_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginLeft="10dip"
+					android:gravity="left"
+					android:orientation="vertical" >
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_marginTop="5dip"
+						android:lines="1"
+						android:text="@string/light_sleep"
+						android:textColor="#000000"
+						android:textSize="16dip" />
+					<TextView
+						android:id="@+id/textview_light_sleep"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_marginTop="5dip"
+						android:ellipsize="end"
+						android:lines="1"
+						android:text="0 h 0 m"
+						android:textColor="#231F20"
+						android:textSize="14dip"
+						android:visibility="gone" />
+					<LinearLayout
+						android:layout_width="fill_parent"
+						android:layout_height="wrap_content"
+						android:gravity="left"
+						android:orientation="horizontal" >
+					    <TextView
+							android:id="@+id/textview_light_sleep_h"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:layout_marginTop="5dip"
+							android:lines="1"
+							android:text="0"
+							android:textColor="#231F20"
+							android:textStyle="bold"
+							android:textSize="20dip" />
+					    <TextView
+							android:id="@+id/textview_light_sleep_h_hint"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:layout_marginTop="5dip"
+							android:layout_marginLeft="5dip"
+							android:lines="1"
+							android:text="@string/sleeps_hint_hours"
+							android:textColor="#231F20"
+							android:textStyle="bold"
+							android:textSize="14dip" />
+					    <TextView
+							android:id="@+id/textview_light_sleep_m"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:layout_marginTop="5dip"
+							android:layout_marginLeft="5dip"
+							android:lines="1"
+							android:text="0"
+							android:textColor="#231F20"
+							android:textStyle="bold"
+							android:textSize="20dip" />
+					    <TextView
+							android:id="@+id/textview_light_sleep_m_hint"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:layout_marginTop="5dip"
+							android:layout_marginLeft="5dip"
+							android:lines="1"
+							android:text="@string/sleeps_hint_mins"
+							android:textColor="#231F20"
+							android:textStyle="bold"
+							android:textSize="14dip" />
+					</LinearLayout>
+				</LinearLayout>
+			</LinearLayout>
+			
+			<!-- 竖线条 -->
+			<!-- <ImageView
+				android:id="@+id/sleep_image"
+				android:layout_width="1dip"
+				android:layout_height="match_parent"
+				android:background="#404041" /> -->
+
+			<!-- 第2行：第2列 -->
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_gravity="center"
+				android:layout_marginTop="20dip"
+				android:layout_marginBottom="20dip"
+				android:layout_marginLeft="5dip"
+				android:layout_marginRight="5dip"
+				android:layout_weight="1.0"
+				android:gravity="center_vertical"
+				android:orientation="horizontal" >
+				<ImageView
+					android:id="@+id/imageview_pic"
+					android:layout_width="46dip"
+					android:layout_height="46dip"
+					android:layout_marginLeft="10dip"
+					android:src="@drawable/sober_clock"
+					android:visibility="visible" /> 
+				<LinearLayout
+					android:id="@+id/linearlayout_content2"
+					android:layout_width="fill_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginLeft="10dip"
+					android:gravity="left"
+					android:orientation="vertical" >
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_marginTop="5dip"
+						android:lines="1"
+						android:text="@string/awake_time"
+						android:textColor="#000000"
+						android:textSize="16dip" />
+					<TextView
+						android:id="@+id/textview_awake_time"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_marginTop="5dip"
+						android:ellipsize="end"
+						android:lines="1"
+						android:text="0 h 0 m"
+						android:textColor="#231F20"
+						android:textSize="14dip"
+						android:visibility="gone"
+						/>
+					<LinearLayout
+						android:layout_width="fill_parent"
+						android:layout_height="wrap_content"
+						android:gravity="left"
+						android:orientation="horizontal" >
+					    <TextView
+							android:id="@+id/textview_awake_time_h"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:layout_marginTop="5dip"
+							android:lines="1"
+							android:text="0"
+							android:textColor="#231F20"
+							android:textStyle="bold"
+							android:textSize="20dip" />
+					    <TextView
+							android:id="@+id/textview_awake_time_h_hint"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:layout_marginTop="5dip"
+							android:layout_marginLeft="5dip"
+							android:lines="1"
+							android:text="@string/sleeps_hint_hours"
+							android:textColor="#231F20"
+							android:textStyle="bold"
+							android:textSize="14dip" />
+					    <TextView
+							android:id="@+id/textview_awake_time_m"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:layout_marginTop="5dip"
+							android:layout_marginLeft="5dip"
+							android:lines="1"
+							android:text="0"
+							android:textColor="#231F20"
+							android:textStyle="bold"
+							android:textSize="20dip" />
+					    <TextView
+							android:id="@+id/textview_awake_time_m_hint"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:layout_marginTop="5dip"
+							android:layout_marginLeft="5dip"
+							android:lines="1"
+							android:text="@string/sleeps_hint_mins"
+							android:textColor="#231F20"
+							android:textStyle="bold"
+							android:textSize="14dip" />
+					</LinearLayout>
+				</LinearLayout>
+			</LinearLayout>
+		</LinearLayout>
+		<!-- 第2行：结束 -->
+
+		<!-- 横线条 -->
+		<!-- <ImageView
+			android:layout_width="match_parent"
+			android:layout_height="1dip"
+			android:background="#404041" /> -->
+
+		<!-- 第3行：开始 -->
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_gravity="center"
+			android:gravity="center_vertical"
+			android:orientation="horizontal" >
+
+			<!-- 第3行：第1列 -->
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_gravity="center"
+				android:layout_marginTop="20dip"
+				android:layout_marginBottom="20dip"
+				android:layout_marginLeft="5dip"
+				android:layout_marginRight="5dip"
+				android:layout_weight="1.0"
+				android:gravity="center_vertical"
+				android:orientation="horizontal" >
+				<ImageView
+					android:layout_width="46dip"
+					android:layout_height="46dip"
+					android:layout_marginLeft="10dip"
+					android:src="@drawable/deep_sleep"
+					android:visibility="visible" /> 
+				<LinearLayout
+					android:layout_width="fill_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginLeft="10dip"
+					android:gravity="left"
+					android:orientation="vertical" >
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_marginTop="5dip"
+						android:lines="1"
+						android:text="@string/deep_sleep"
+						android:textColor="#000000"
+						android:textSize="16dip" />
+					<TextView
+						android:id="@+id/textview_deep_sleep"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_marginTop="5dip"
+						android:ellipsize="end"
+						android:lines="1"
+						android:text="0 h 0 m"
+						android:textColor="#231F20"
+						android:textSize="14dip"
+						android:visibility="gone"
+						/>
+					<LinearLayout
+						android:layout_width="fill_parent"
+						android:layout_height="wrap_content"
+						android:gravity="left"
+						android:orientation="horizontal" >
+					    <TextView
+							android:id="@+id/textview_deep_sleep_h"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:layout_marginTop="5dip"
+							android:lines="1"
+							android:text="0"
+							android:textColor="#231F20"
+							android:textStyle="bold"
+							android:textSize="20dip" />
+					    <TextView
+							android:id="@+id/textview_deep_sleep_h_hint"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:layout_marginTop="5dip"
+							android:layout_marginLeft="5dip"
+							android:lines="1"
+							android:text="@string/sleeps_hint_hours"
+							android:textColor="#231F20"
+							android:textStyle="bold"
+							android:textSize="14dip" />
+					    <TextView
+							android:id="@+id/textview_deep_sleep_m"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:layout_marginTop="5dip"
+							android:layout_marginLeft="5dip"
+							android:lines="1"
+							android:text="0"
+							android:textColor="#231F20"
+							android:textStyle="bold"
+							android:textSize="20dip" />
+					    <TextView
+							android:id="@+id/textview_deep_sleep_m_hint"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:layout_marginTop="5dip"
+							android:layout_marginLeft="5dip"
+							android:lines="1"
+							android:text="@string/sleeps_hint_mins"
+							android:textColor="#231F20"
+							android:textStyle="bold"
+							android:textSize="14dip" />
+					</LinearLayout>
+				</LinearLayout>
+			</LinearLayout>
+			
+			<!-- 竖线条 -->
+			<!-- <ImageView
+				android:layout_width="1dip"
+				android:layout_height="match_parent"
+				android:background="#404041" /> -->
+
+			<!-- 第3行：第2列 -->
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_gravity="center"
+				android:layout_marginTop="20dip"
+				android:layout_marginBottom="20dip"
+				android:layout_marginLeft="5dip"
+				android:layout_marginRight="5dip"
+				android:layout_weight="1.0"
+				android:gravity="center_vertical"
+				android:orientation="horizontal" >
+				<ImageView
+					android:layout_width="46dip"
+					android:layout_height="46dip"
+					android:layout_marginLeft="10dip"
+					android:src="@drawable/insleep_clock"
+					android:visibility="visible" /> 
+				<LinearLayout
+					android:layout_width="fill_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginLeft="10dip"
+					android:gravity="left"
+					android:orientation="vertical" >
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_marginTop="5dip"
+						android:lines="1"
+						android:text="@string/sleep_time"
+						android:textColor="#000000"
+						android:textSize="16dip" />
+					<TextView
+						android:id="@+id/textview_sleep_time"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_marginTop="5dip"
+						android:ellipsize="end"
+						android:lines="1"
+						android:text="0 h 0 m"
+						android:textColor="#231F20"
+						android:textSize="14dip"
+						android:visibility="gone"
+						/>
+					<LinearLayout
+						android:layout_width="fill_parent"
+						android:layout_height="wrap_content"
+						android:gravity="left"
+						android:orientation="horizontal" >
+					    <TextView
+							android:id="@+id/textview_sleep_time_h"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:layout_marginTop="5dip"
+							android:lines="1"
+							android:text="0"
+							android:textColor="#231F20"
+							android:textStyle="bold"
+							android:textSize="20dip" />
+					    <TextView
+							android:id="@+id/textview_sleep_time_h_hint"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:layout_marginTop="5dip"
+							android:layout_marginLeft="5dip"
+							android:lines="1"
+							android:text="@string/sleeps_hint_hours"
+							android:textColor="#231F20"
+							android:textStyle="bold"
+							android:textSize="14dip" />
+					    <TextView
+							android:id="@+id/textview_sleep_time_m"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:layout_marginTop="5dip"
+							android:layout_marginLeft="5dip"
+							android:lines="1"
+							android:text="0"
+							android:textColor="#231F20"
+							android:textStyle="bold"
+							android:textSize="20dip" />
+					    <TextView
+							android:id="@+id/textview_sleep_time_m_hint"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:layout_marginTop="5dip"
+							android:layout_marginLeft="5dip"
+							android:lines="1"
+							android:text="@string/sleeps_hint_mins"
+							android:textColor="#231F20"
+							android:textStyle="bold"
+							android:textSize="14dip" />
+					</LinearLayout>
+				</LinearLayout>
+			</LinearLayout>
+		</LinearLayout>
+		<!-- 第3行：结束 -->
+
+		<!-- 横线条 -->
+		<!-- <ImageView
+			android:layout_width="match_parent"
+			android:layout_height="1dip"
+			android:background="#404041" /> -->
+
+		<!-- 第4行：开始 -->
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_gravity="center"
+			android:gravity="center_vertical"
+			android:orientation="horizontal" >
+
+			<!-- 第4行：第1列 -->
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_gravity="center"
+				android:layout_marginTop="20dip"
+				android:layout_marginBottom="20dip"
+				android:layout_marginLeft="5dip"
+				android:layout_marginRight="5dip"
+				android:layout_weight="1.0"
+				android:gravity="center_vertical"
+				android:orientation="horizontal" >
+				<ImageView
+					android:layout_width="46dip"
+					android:layout_height="46dip"
+					android:layout_marginLeft="10dip"
+					android:src="@drawable/sober_times"
+					android:visibility="visible" /> 
+				<LinearLayout
+					android:layout_width="fill_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginLeft="10dip"
+					android:gravity="left"
+					android:orientation="vertical" >
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_marginTop="5dip"
+						android:lines="1"
+						android:text="@string/awake_times"
+						android:textColor="#000000"
+						android:textSize="16dip" />
+					<TextView
+						android:id="@+id/textview_awake_times"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_marginTop="5dip"
+						android:ellipsize="end"
+						android:lines="1"
+						android:text="0 times"
+						android:textColor="#231F20"
+						android:textSize="14dip"
+						android:visibility="gone"
+						/>
+					<LinearLayout
+						android:layout_width="fill_parent"
+						android:layout_height="wrap_content"
+						android:gravity="left"
+						android:orientation="horizontal" >
+					    <TextView
+							android:id="@+id/textview_awake_times_h"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:layout_marginTop="5dip"
+							android:lines="1"
+							android:text="0"
+							android:textColor="#231F20"
+							android:textStyle="bold"
+							android:textSize="20dip" />
+					    <TextView
+							android:id="@+id/textview_awake_times_h_hint"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:layout_marginTop="5dip"
+							android:layout_marginLeft="5dip"
+							android:lines="1"
+							android:text="@string/times"
+							android:textColor="#231F20"
+							android:textStyle="bold"
+							android:textSize="14dip" />
+					</LinearLayout>
+				</LinearLayout>
+			</LinearLayout>
+			
+			<!-- 竖线条 -->
+			<!-- <ImageView
+				android:layout_width="1dip"
+				android:layout_height="match_parent"
+				android:background="#404041" /> -->
+
+			<!-- 第4行：第2列 -->
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_gravity="center"
+				android:layout_marginTop="20dip"
+				android:layout_marginBottom="20dip"
+				android:layout_marginLeft="5dip"
+				android:layout_marginRight="5dip"
+				android:layout_weight="1.0"
+				android:gravity="center_vertical"
+				android:orientation="horizontal" >
+				<ImageView
+					android:layout_width="46dip"
+					android:layout_height="46dip"
+					android:layout_marginLeft="10dip"
+					android:src="@drawable/deep_sleep_clock"
+					android:visibility="visible" /> 
+				<LinearLayout
+					android:layout_width="fill_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginLeft="10dip"
+					android:gravity="left"
+					android:orientation="vertical" >
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_marginTop="5dip"
+						android:lines="1"
+						android:text="@string/total_bed_time"
+						android:textColor="#000000"
+						android:textSize="16dip" />
+					<TextView
+						android:id="@+id/textview_total_bed_time"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_marginTop="5dip"
+						android:ellipsize="end"
+						android:lines="1"
+						android:text="0 h 0 m"
+						android:textColor="#231F20"
+						android:textSize="14dip"
+						android:visibility="gone"
+						/>
+					<LinearLayout
+						android:layout_width="fill_parent"
+						android:layout_height="wrap_content"
+						android:gravity="left"
+						android:orientation="horizontal" >
+					    <TextView
+							android:id="@+id/textview_total_bed_time_h"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:layout_marginTop="5dip"
+							android:lines="1"
+							android:text="0"
+							android:textColor="#231F20"
+							android:textStyle="bold"
+							android:textSize="20dip" />
+					    <TextView
+							android:id="@+id/textview_total_bed_time_h_hint"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:layout_marginTop="5dip"
+							android:layout_marginLeft="5dip"
+							android:lines="1"
+							android:text="@string/sleeps_hint_hours"
+							android:textColor="#231F20"
+							android:textStyle="bold"
+							android:textSize="14dip" />
+					    <TextView
+							android:id="@+id/textview_total_bed_time_m"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:layout_marginTop="5dip"
+							android:layout_marginLeft="5dip"
+							android:lines="1"
+							android:text="0"
+							android:textColor="#231F20"
+							android:textStyle="bold"
+							android:textSize="20dip" />
+					    <TextView
+							android:id="@+id/textview_total_bed_time_m_hint"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:layout_marginTop="5dip"
+							android:layout_marginLeft="5dip"
+							android:lines="1"
+							android:text="@string/sleeps_hint_mins"
+							android:textColor="#231F20"
+							android:textStyle="bold"
+							android:textSize="14dip" />
+					</LinearLayout>
+				</LinearLayout>
+			</LinearLayout>
+		</LinearLayout>
+		<!-- 第4行：结束 -->
+		
+		<!-- 横线条 -->
+		<!-- <ImageView
+			android:layout_width="match_parent"
+			android:layout_height="1dip"
+			android:background="#404041" /> -->
+		
+	</LinearLayout>
+	<!-- 2014-06-16 end -->
+
+
+        <!-- 不同图表前面翻页 begin -->
+
+        <LinearLayout
+            android:id="@+id/common_preAndNext_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="20dip"
+            android:gravity="center|bottom"
+            android:orientation="horizontal"
+            android:visibility="gone" >
+
+            <!-- android:background="#E0E0E0" -->
+
+            <ImageView
+                android:id="@+id/common_preAndNext_down"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="0dip"
+                android:layout_marginRight="0dip"
+                android:background="@drawable/move_down"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/common_preAndNext_up_down"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="0dip"
+                android:layout_marginRight="0dip"
+                android:background="@drawable/move_up_down"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/common_preAndNext_up"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="0dip"
+                android:layout_marginRight="0dip"
+                android:background="@drawable/move_up"
+                android:visibility="gone" />
+        </LinearLayout>
+        <!-- 不同图表前面翻页 end -->
+
+    </LinearLayout>
+
+    <RelativeLayout 
+        android:layout_width="fill_parent"
+	    android:layout_height="fill_parent"
+	    android:layout_below="@id/otherlayout"
+        >
+    <ImageView
+	    android:id="@+id/iv_pre"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_centerVertical="true"
+	    android:layout_centerHorizontal="true"
+	    android:background="@drawable/sleep_day_01" />
+    </RelativeLayout>
+</RelativeLayout>

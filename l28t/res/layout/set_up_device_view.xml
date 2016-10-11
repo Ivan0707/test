@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/otherlayout"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical" >
+
+    <!-- topbar 标题显示 -->
+
+    <FrameLayout
+        android:id="@+id/pttopbar"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <include layout="@layout/title" />
+
+        <!-- 左边的按钮   android:onClick="btn_left_clicked" -->
+
+        <ImageButton
+            android:id="@+id/btn_left"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="left|center_vertical"
+            android:layout_marginLeft="15dip"
+            android:layout_marginTop="0dip"
+            android:background="@drawable/topbtn_rebutn_btn_selector"
+            android:onClick="btn_return_clicked"
+            android:visibility="visible" />
+    </FrameLayout>   
+    
+    
+
+    <LinearLayout
+        android:id="@+id/layout_buttom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="30dp"
+        android:layout_centerHorizontal="true"
+        android:orientation="vertical" >
+
+        <Button
+            android:id="@+id/bt_bind"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="0dp"
+            android:background="@drawable/bt_bg"
+            android:text="@string/setting_connet_zecircle"
+            android:textColor="#fff"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/bt_remove"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="0dp"
+            android:background="@drawable/bt_bg"
+            android:text="@string/binding_unpair"
+            android:textColor="#fff"
+            android:textSize="16sp" />
+    </LinearLayout>
+    
+      <RelativeLayout
+        android:id="@+id/layout_set_up_deveice"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@id/pttopbar"
+        android:layout_above="@id/layout_buttom"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:clickable="false" >
+
+        <ImageView
+            android:id="@+id/imageview_pedometer"
+            android:layout_width="@dimen/layout_x_324"
+            android:layout_height="@dimen/layout_x_470"
+            android:src="@drawable/bind_select_image" />
+    </RelativeLayout>
+
+</RelativeLayout>

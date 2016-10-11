@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/otherlayout"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#fff"
+    android:orientation="vertical" >
+
+    <!-- topbar 标题显示 -->
+
+    <FrameLayout
+        android:id="@+id/pttopbar"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <include layout="@layout/title" />
+
+        <!-- 左边的按钮   android:onClick="btn_left_clicked"   -->
+        <ImageButton
+            android:id="@+id/btn_left"
+            android:layout_width="wrap_content"
+            android:layout_height="40dip"
+            android:layout_gravity="left|center_vertical"
+            android:layout_marginLeft="15dip"
+            android:background="@drawable/topbtn_rebutn_btn_selector"
+            android:onClick="btn_return_clicked"        
+            android:visibility="visible" />
+        
+    </FrameLayout>
+    
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/vp"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" />
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:layout_marginTop="50dip"
+            android:gravity="center"
+            android:textSize="30sp"
+            android:text="4444"
+            android:textColor="#21b9a4" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:background="#33000000"
+            android:gravity="center"
+            android:orientation="vertical" >			
+            
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"                
+                android:layout_marginBottom="30dip"
+                android:layout_marginTop="30dip"
+                android:gravity="center" >
+
+                <View
+                    android:id="@+id/v_dot0"
+                    style="@style/dot_style"
+                    android:background="@drawable/dot_focused" 
+                    android:layout_marginRight="10dip"
+                    />
+
+                <View
+                    android:id="@+id/v_dot1"
+                    style="@style/dot_style" />
+
+                <View
+                    android:id="@+id/v_dot2"
+                    android:layout_marginLeft="10dip"
+                    style="@style/dot_style" />
+
+                
+            </LinearLayout>
+        </LinearLayout>
+    </FrameLayout>
+
+</LinearLayout>

@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/bg_main"
+    android:orientation="vertical" >
+
+    <!-- topbar 标题显示 -->
+
+    <FrameLayout
+        android:id="@+id/pttopbar"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <include layout="@layout/title" />
+
+        <!-- 左边的按钮   android:onClick="btn_left_clicked" -->
+
+        <ImageButton
+            android:id="@+id/btn_left"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="left|center_vertical"
+            android:layout_marginLeft="10dip"
+            android:layout_marginTop="0dip"
+            android:background="@drawable/topbtn_rebutn_btn_selector"
+            android:onClick="btn_return_clicked"
+            android:visibility="visible" />
+
+        <TextView
+            android:id="@+id/tv_right"
+            android:layout_width="80dip"
+            android:layout_height="45dip"
+            android:layout_gravity="right|center_vertical"
+            android:layout_marginRight="5dip"
+            android:layout_marginTop="0dip"
+            android:gravity="center"
+            android:text="@string/reminder_save"
+            android:textColor="#ffffff"
+            android:textSize="16dip"
+            android:visibility="visible" />
+    </FrameLayout>
+
+    <RelativeLayout
+        android:id="@+id/layout_base_setting"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#fff"
+        android:padding="10dip" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="0dip"
+            android:drawableLeft="@drawable/add_sleep_sleep"
+            android:gravity="center_vertical"
+            android:paddingLeft="0dip"
+            android:textColor="@android:color/black"
+            android:textSize="16dip" />
+		<!-- android:text="@string/sleep_add_bedtime" -->
+        <ImageView
+            android:id="@+id/iv_bedtime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="0dip"
+            android:background="@drawable/more" />
+
+        <LinearLayout
+            android:id="@+id/layout_bedtime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@id/iv_bedtime"
+            android:orientation="horizontal"
+            android:padding="5dip" >
+
+            <TextView
+                android:id="@+id/text_bedtime_day"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/Yesterday" />
+
+            <TextView
+                android:id="@+id/text_bedtime_hour"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5dip"
+                android:text="22" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/sleeps_hint_hours" />
+
+            <TextView
+                android:id="@+id/text_bedtime_min"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5dip"
+                android:text="30" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/sleeps_hint_mins" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="0.5dip"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="10dip"
+        android:background="#cccccc" />
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#fff"
+        android:padding="10dip" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="0dip"
+            android:drawableLeft="@drawable/add_sleep_wakeup"
+            android:gravity="center_vertical"
+            android:paddingLeft="0dip"
+            android:textColor="@android:color/black"
+            android:textSize="16dip" />
+			<!--  android:text="@string/sleep_add_awaketime" -->
+        <ImageView
+            android:id="@+id/iv_awaketime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="0dip"
+            android:background="@drawable/more" />
+
+        <LinearLayout
+            android:id="@+id/layout_awaketime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@id/iv_awaketime"
+            android:orientation="horizontal"
+            android:padding="5dip" >
+
+            <TextView
+                android:id="@+id/text_awakwtime_day"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/today1" />
+
+            <TextView
+                android:id="@+id/text_awakwtime_hour"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5dip"
+                android:text="07" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/sleeps_hint_hours" />
+
+            <TextView
+                android:id="@+id/text_awakwtime_min"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5dip"
+                android:text="30" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/sleeps_hint_mins" />
+        </LinearLayout>
+    </RelativeLayout>
+
+</LinearLayout>

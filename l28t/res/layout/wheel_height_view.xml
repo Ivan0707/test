@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+    android:orientation="vertical" >
+
+    <!-- android:background="#F0F0F0" -->
+
+    <LinearLayout
+        android:id="@+id/pop1_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/btn_style_alert_dialog_background"
+        android:gravity="center_horizontal"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:id="@+id/pop2_layout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+          
+            
+            android:orientation="horizontal" >
+          <Button
+                android:id="@+id/HeightWheelCancel"
+                android:layout_width="75dp"
+                android:layout_height="35dp"
+                android:gravity="center"
+                android:background="@drawable/cancel"
+               
+                 android:layout_alignParentRight="true"
+                android:layout_marginRight="15dp"
+                android:text="@string/Cancel" />
+       
+            <Button
+                android:id="@+id/HeightWheelSave"
+                android:layout_width="75dp"
+                android:layout_height="35dp"
+                  android:gravity="center"
+                  android:layout_alignParentLeft="true"
+                android:layout_marginLeft="15dp"
+               
+                android:background="@drawable/bt_bg"
+              
+                android:text="@string/OK" />
+
+            </RelativeLayout>
+        <LinearLayout
+            android:id="@+id/pop_layout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/btn_style_alert_dialog_background"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal" >
+
+            <kankan.wheel.widget.WheelView
+                android:id="@+id/Height_Int"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content" />
+
+            <kankan.wheel.widget.WheelView
+                android:id="@+id/Height_Dec"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content" />
+
+            <kankan.wheel.widget.WheelView
+                android:id="@+id/Height_Unit"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

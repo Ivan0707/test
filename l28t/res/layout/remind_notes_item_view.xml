@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:layout_gravity="center"
+	android:id="@+id/news_list_bar"
+	android:descendantFocusability="blocksDescendants"
+	>
+
+	<!-- <ImageView android:id="@+id/newsDefaultIcon" android:layout_width="94dip" 
+		android:layout_height="94dip" android:layout_margin="5dip" android:src="@drawable/loading" 
+		android:layout_centerVertical="true" android:visibility="gone" /> -->
+		<!-- android:src="@drawable/loading_news_list_item" -->
+	<ImageButton
+		android:id="@+id/imagebutton_del"
+		android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"		
+	  	android:layout_marginLeft="15dip"		
+	  	android:layout_marginRight="5dip"		
+		android:layout_centerVertical="true"
+		android:layout_alignParentLeft="true"
+		android:background="@drawable/btn_del_selector"
+		/>
+	<LinearLayout
+	    android:id="@+id/linearlayout_left"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_toRightOf="@id/imagebutton_del"
+		android:layout_centerVertical="true"
+		android:orientation="horizontal"
+		/>
+	
+	
+	<!-- 右边的图标 -->
+	<LinearLayout
+	    android:id="@+id/linearlayout_right"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginRight="15dip"	
+		android:layout_alignParentRight="true"
+		android:orientation="vertical"
+		android:gravity="center"
+		android:layout_centerInParent="true"
+		>
+		<ToggleButton   
+	        android:layout_width="wrap_content"  
+	        android:layout_height="wrap_content"
+			android:textOn=""
+			android:textOff=""
+	        android:background="@drawable/toggle_selector"
+	        android:id="@+id/togglebutton"
+	        />
+		<ImageView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:visibility="gone"
+			android:background="@drawable/next"
+			android:focusable="false"
+			android:id="@+id/imageview_next"
+			 />
+<!-- android:background="@drawable/right_list_setting" -->
+	</LinearLayout>
+	<!-- android:layout_centerInParent="true"
+	android:gravity="center"
+	 -->
+	<LinearLayout
+		android:layout_width="wrap_content"
+		android:layout_height="@dimen/layout_y_70"		
+		android:layout_toRightOf="@id/linearlayout_left"
+		android:layout_toLeftOf="@id/linearlayout_right"
+		android:orientation="horizontal"		
+		android:layout_centerInParent="true"	
+		android:gravity="left"
+       	android:layout_gravity="center"
+       	android:layout_marginLeft="10dip"		
+	  	android:layout_marginRight="5dip"
+	  	android:layout_marginTop="5dp"
+	  	android:layout_marginBottom="5dp"
+		android:id="@+id/linearlayout_content">
+		<ImageView
+	       	android:id="@+id/imageview_pic"
+	       	android:layout_width="40dip"
+	       	android:layout_height="40dip"
+	       	android:gravity="center"
+	       	android:layout_gravity="center"
+	       	android:layout_centerVertical="true"
+	       	android:visibility="visible"
+	       	android:src="@drawable/remind_item_sport"
+	       	/>
+		<!-- 	android:gravity="center"	
+			android:layout_centerInParent="true" -->
+		<LinearLayout
+			android:orientation="horizontal"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+	       	android:layout_gravity="left|center_vertical"
+	       	android:layout_marginLeft="10dip"		
+		  	android:layout_marginRight="5dip"
+			android:id="@+id/linearlayout_content2"
+			>
+			<TextView
+				android:id="@+id/textview_remind_time"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_gravity="center_vertical"
+				android:lines="1"
+				android:textSize="14sp"
+				android:textStyle="bold"
+				android:textColor="@android:color/black"
+				android:text="2012/12/15"
+				/>
+			<TextView
+				android:id="@+id/textview_remind_week"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginLeft="3dip"
+				android:layout_gravity="center_vertical"
+				android:maxLines="1"
+				android:textSize="12sp"
+				android:ellipsize="end"
+				android:textColor="@android:color/black"
+				android:text="zhong"		
+				/>
+		
+		</LinearLayout>
+	</LinearLayout>
+
+
+</RelativeLayout>
